@@ -22,18 +22,6 @@ var noteNameColour8 = whiteColour;
 var noteNameColour9 = whiteColour;
 var noteNameColour10 = whiteColour;
 var noteNameColour11 = whiteColour;
-var noteColour = lightColour;
-var noteColour1 = lightColour;
-var noteColour2 = lightColour;
-var noteColour3 = lightColour;
-var noteColour4 = lightColour;
-var noteColour5 = lightColour;
-var noteColour6 = lightColour;
-var noteColour7 = lightColour;
-var noteColour8 = lightColour;
-var noteColour9 = lightColour;
-var noteColour10 = lightColour;
-var noteColour11 = lightColour;
 var intervalNameColour = lightColour;
 var intervalNameColour1 = lightColour;
 var intervalNameColour2 = lightColour;
@@ -104,6 +92,13 @@ var keyPressedMixolydian = 0;
 var keyPressedAeolian = 0;
 var keyPressedLocrian = 0;
 
+function getNoteColour(noteName) {
+  if (whiteNotes.includes(noteName)) {
+    return lightColour;
+  } else {
+    return darkColour;
+  }
+}
 
 function setup() {
   createCanvas(1301, keyHeight + 2);
@@ -236,29 +231,29 @@ function draw() {
   //fill takes the noteColour value dictated by later if statements.
   //rect creates rectangles at regularly increasing values based on rootNoteX, at a predefined keyHeight.
   noStroke();
-  fill(noteColour);
+  fill(getNoteColour(noteName[0]));
   rect(rootNoteKeyX, 1, 100, keyHeight);
-  fill(noteColour1);
+  fill(getNoteColour(noteName[1]));
   rect(rootNoteKeyX + 100, 1, 100, keyHeight);
-  fill(noteColour2);
+  fill(getNoteColour(noteName[2]));
   rect(rootNoteKeyX + 200, 1, 100, keyHeight);
-  fill(noteColour3);
+  fill(getNoteColour(noteName[3]));
   rect(rootNoteKeyX + 300, 1, 100, keyHeight);
-  fill(noteColour4);
+  fill(getNoteColour(noteName[4]));
   rect(rootNoteKeyX + 400, 1, 100, keyHeight);
-  fill(noteColour5);
+  fill(getNoteColour(noteName[5]));
   rect(rootNoteKeyX + 500, 1, 100, keyHeight);
-  fill(noteColour6);
+  fill(getNoteColour(noteName[6]));
   rect(rootNoteKeyX + 600, 1, 100, keyHeight);
-  fill(noteColour7);
+  fill(getNoteColour(noteName[7]));
   rect(rootNoteKeyX + 700, 1, 100, keyHeight);
-  fill(noteColour8);
+  fill(getNoteColour(noteName[8]));
   rect(rootNoteKeyX + 800, 1, 100, keyHeight);
-  fill(noteColour9);
+  fill(getNoteColour(noteName[9]));
   rect(rootNoteKeyX + 900, 1, 100, keyHeight);
-  fill(noteColour10);
+  fill(getNoteColour(noteName[10]));
   rect(rootNoteKeyX + 1000, 1, 100, keyHeight);
-  fill(noteColour11);
+  fill(getNoteColour(noteName[11]));
   rect(rootNoteKeyX + 1100, 1, 100, keyHeight);
 
   //rect defines the border of the keyboard element, using keyHeight as the predefined height value.
@@ -468,121 +463,97 @@ function draw() {
   //if statements define colours for multiple elements on the keyboard element.
   //Lighter nameColour is used when the noteColour is darkColour, and vice versa.
   if (whiteNotes.includes(noteName[0])) {
-    noteColour = lightColour;
     noteNameColour = blackColour;
     intervalNameColour = darkColour;
   } else {
-    noteColour = darkColour;
     noteNameColour = whiteColour;
     intervalNameColour = lightColour;
   }
 
   if (whiteNotes.includes(noteName[1])) {
-    noteColour1 = lightColour;
     noteNameColour1 = blackColour;
     intervalNameColour1 = darkColour;
   } else {
-    noteColour1 = darkColour;
     noteNameColour1 = whiteColour;
     intervalNameColour1 = lightColour;
 
   }
   if (whiteNotes.includes(noteName[2])) {
-    noteColour2 = lightColour;
     noteNameColour2 = blackColour;
     intervalNameColour2 = darkColour;
   } else {
-    noteColour2 = darkColour;
     noteNameColour2 = whiteColour;
     intervalNameColour2 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[3])) {
-    noteColour3 = lightColour;
     noteNameColour3 = blackColour;
     intervalNameColour3 = darkColour;
   } else {
-    noteColour3 = darkColour;
     noteNameColour3 = whiteColour;
     intervalNameColour3 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[4])) {
-    noteColour4 = lightColour;
     noteNameColour4 = blackColour;
     intervalNameColour4 = darkColour;
   } else {
-    noteColour4 = darkColour;
     noteNameColour4 = whiteColour;
     intervalNameColour4 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[5])) {
-    noteColour5 = lightColour;
     noteNameColour5 = blackColour;
     intervalNameColour5 = darkColour;
   } else {
-    noteColour5 = darkColour;
     noteNameColour5 = whiteColour;
     intervalNameColour5 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[6])) {
-    noteColour6 = lightColour;
     noteNameColour6 = blackColour;
     intervalNameColour6 = darkColour;
   } else {
-    noteColour6 = darkColour;
     noteNameColour6 = whiteColour;
     intervalNameColour6 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[7])) {
-    noteColour7 = lightColour;
     noteNameColour7 = blackColour;
     intervalNameColour7 = darkColour;
   } else {
-    noteColour7 = darkColour;
     noteNameColour7 = whiteColour;
     intervalNameColour7 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[8])) {
-    noteColour8 = lightColour;
     noteNameColour8 = blackColour;
     intervalNameColour8 = darkColour;
   } else {
-    noteColour8 = darkColour;
     noteNameColour8 = whiteColour;
     intervalNameColour8 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[9])) {
-    noteColour9 = lightColour;
     noteNameColour9 = blackColour;
     intervalNameColour9 = darkColour;
   } else {
-    noteColour9 = darkColour;
     noteNameColour9 = whiteColour;
     intervalNameColour9 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[10])) {
-    noteColour10 = lightColour;
     noteNameColour10 = blackColour;
     intervalNameColour10 = darkColour;
   } else {
-    noteColour10 = darkColour;
     noteNameColour10 = whiteColour;
     intervalNameColour10 = lightColour;
   }
 
   if (whiteNotes.includes(noteName[11])) {
-    noteColour11 = lightColour;
     noteNameColour11 = blackColour;
     intervalNameColour11 = darkColour;
   } else {
-    noteColour11 = darkColour;
     noteNameColour11 = whiteColour;
     intervalNameColour11 = lightColour;
   }
