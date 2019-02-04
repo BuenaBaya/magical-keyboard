@@ -10,30 +10,6 @@ var blackColour = 0;
 var whiteColour = 255;
 var lightColour = 185;
 var darkColour = 65;
-var noteNameColour = whiteColour;
-var noteNameColour1 = whiteColour;
-var noteNameColour2 = whiteColour;
-var noteNameColour3 = whiteColour;
-var noteNameColour4 = whiteColour;
-var noteNameColour5 = whiteColour;
-var noteNameColour6 = whiteColour;
-var noteNameColour7 = whiteColour;
-var noteNameColour8 = whiteColour;
-var noteNameColour9 = whiteColour;
-var noteNameColour10 = whiteColour;
-var noteNameColour11 = whiteColour;
-var intervalNameColour = lightColour;
-var intervalNameColour1 = lightColour;
-var intervalNameColour2 = lightColour;
-var intervalNameColour3 = lightColour;
-var intervalNameColour4 = lightColour;
-var intervalNameColour5 = lightColour;
-var intervalNameColour6 = lightColour;
-var intervalNameColour7 = lightColour;
-var intervalNameColour8 = lightColour;
-var intervalNameColour9 = lightColour;
-var intervalNameColour10 = lightColour;
-var intervalNameColour11 = lightColour;
 var intervalNameStrokeColour = blackColour;
 var keyPressedInterval = 0;
 var intervalX = rootNoteKeyX + 465;
@@ -97,6 +73,21 @@ function getNoteColour(noteName) {
     return lightColour;
   } else {
     return darkColour;
+  }
+}
+function getNoteNameColour(noteName) {
+  if (whiteNotes.includes(noteName)) {
+    return blackColour;
+  } else {
+    return whiteColour;
+  }
+}
+
+function getIntervalNameColour(noteName) {
+  if (whiteNotes.includes(noteName)) {
+    return darkColour;
+  } else {
+    return whiteColour;
   }
 }
 
@@ -367,29 +358,29 @@ function draw() {
   noStroke();
   textAlign(CENTER);
   textSize(60);
-  fill(noteNameColour);
+  fill(getNoteNameColour(noteName[0]));
   text((noteName[0]), noteNameX, noteNameY);
-  fill(noteNameColour1);
+  fill(getNoteNameColour(noteName[1]));
   text((noteName[1]), noteNameX + 100, noteNameY);
-  fill(noteNameColour2);
+  fill(getNoteNameColour(noteName[2]));
   text((noteName[2]), noteNameX + 200, noteNameY);
-  fill(noteNameColour3);
+  fill(getNoteNameColour(noteName[3]));
   text((noteName[3]), noteNameX + 300, noteNameY);
-  fill(noteNameColour4);
+  fill(getNoteNameColour(noteName[4]));
   text((noteName[4]), noteNameX + 400, noteNameY);
-  fill(noteNameColour5);
+  fill(getNoteNameColour(noteName[5]));
   text((noteName[5]), noteNameX + 500, noteNameY);
-  fill(noteNameColour6);
+  fill(getNoteNameColour(noteName[6]));
   text((noteName[6]), noteNameX + 600, noteNameY);
-  fill(noteNameColour7);
+  fill(getNoteNameColour(noteName[7]));
   text((noteName[7]), noteNameX + 700, noteNameY);
-  fill(noteNameColour8);
+  fill(getNoteNameColour(noteName[8]));
   text((noteName[8]), noteNameX + 800, noteNameY);
-  fill(noteNameColour9);
+  fill(getNoteNameColour(noteName[9]));
   text((noteName[9]), noteNameX + 900, noteNameY);
-  fill(noteNameColour10);
+  fill(getNoteNameColour(noteName[10]));
   text((noteName[10]), noteNameX + 1000, noteNameY);
-  fill(noteNameColour11);
+  fill(getNoteNameColour(noteName[11]));
   text((noteName[11]), noteNameX + 1100, noteNameY);
 
   //text defines the characters which will appear on the mode dots on the legend sidebar.
@@ -423,139 +414,41 @@ function draw() {
   stroke(intervalNameStrokeColour);
   strokeWeight(2);
   textAlign(CENTER);
-  fill(intervalNameColour);
+  fill(getIntervalNameColour(noteName[0]));
   textSize(63);
   text('UNISON', intervalX, intervalY - 627);
-  fill(intervalNameColour1);
+  fill(getIntervalNameColour(noteName[1]));
   textSize(43);
   text('MINOR 2ND', intervalX, intervalY - 735);
-  fill(intervalNameColour2);
+  fill(getIntervalNameColour(noteName[2]));
   textSize(41);
   text('MAJOR 2ND', intervalX, intervalY - 835);
-  fill(intervalNameColour3);
+  fill(getIntervalNameColour(noteName[3]));
   textSize(43);
   text('MINOR 3RD', intervalX, intervalY - 935);
-  fill(intervalNameColour4);
+  fill(getIntervalNameColour(noteName[4]));
   textSize(41);
   text('MAJOR 3RD', intervalX, intervalY - 1035);
-  fill(intervalNameColour5);
+  fill(getIntervalNameColour(noteName[5]));
   textSize(35);
   text('PERFECT 4TH', intervalX, intervalY - 1135);
-  fill(intervalNameColour6);
+  fill(getIntervalNameColour(noteName[6]));
   textSize(27.5);
   text('AUGMENTED 4TH', intervalX, intervalY - 1240);
-  fill(intervalNameColour7);
+  fill(getIntervalNameColour(noteName[7]));
   textSize(35);
   text('PERFECT 5TH', intervalX, intervalY - 1335);
-  fill(intervalNameColour8);
+  fill(getIntervalNameColour(noteName[8]));
   textSize(44);
   text('MINOR 6TH', intervalX, intervalY - 1435);
-  fill(intervalNameColour9);
+  fill(getIntervalNameColour(noteName[9]));
   textSize(42);
   text('MAJOR 6TH', intervalX, intervalY - 1535);
-  fill(intervalNameColour10);
+  fill(getIntervalNameColour(noteName[10]));
   textSize(45);
   text('MINOR 7TH', intervalX, intervalY - 1635);
-  fill(intervalNameColour11);
+  fill(getIntervalNameColour(noteName[11]));
   textSize(43);
   text('MAJOR 7TH', intervalX, intervalY - 1735);
-
-  //if statements define colours for multiple elements on the keyboard element.
-  //Lighter nameColour is used when the noteColour is darkColour, and vice versa.
-  if (whiteNotes.includes(noteName[0])) {
-    noteNameColour = blackColour;
-    intervalNameColour = darkColour;
-  } else {
-    noteNameColour = whiteColour;
-    intervalNameColour = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[1])) {
-    noteNameColour1 = blackColour;
-    intervalNameColour1 = darkColour;
-  } else {
-    noteNameColour1 = whiteColour;
-    intervalNameColour1 = lightColour;
-
-  }
-  if (whiteNotes.includes(noteName[2])) {
-    noteNameColour2 = blackColour;
-    intervalNameColour2 = darkColour;
-  } else {
-    noteNameColour2 = whiteColour;
-    intervalNameColour2 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[3])) {
-    noteNameColour3 = blackColour;
-    intervalNameColour3 = darkColour;
-  } else {
-    noteNameColour3 = whiteColour;
-    intervalNameColour3 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[4])) {
-    noteNameColour4 = blackColour;
-    intervalNameColour4 = darkColour;
-  } else {
-    noteNameColour4 = whiteColour;
-    intervalNameColour4 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[5])) {
-    noteNameColour5 = blackColour;
-    intervalNameColour5 = darkColour;
-  } else {
-    noteNameColour5 = whiteColour;
-    intervalNameColour5 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[6])) {
-    noteNameColour6 = blackColour;
-    intervalNameColour6 = darkColour;
-  } else {
-    noteNameColour6 = whiteColour;
-    intervalNameColour6 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[7])) {
-    noteNameColour7 = blackColour;
-    intervalNameColour7 = darkColour;
-  } else {
-    noteNameColour7 = whiteColour;
-    intervalNameColour7 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[8])) {
-    noteNameColour8 = blackColour;
-    intervalNameColour8 = darkColour;
-  } else {
-    noteNameColour8 = whiteColour;
-    intervalNameColour8 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[9])) {
-    noteNameColour9 = blackColour;
-    intervalNameColour9 = darkColour;
-  } else {
-    noteNameColour9 = whiteColour;
-    intervalNameColour9 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[10])) {
-    noteNameColour10 = blackColour;
-    intervalNameColour10 = darkColour;
-  } else {
-    noteNameColour10 = whiteColour;
-    intervalNameColour10 = lightColour;
-  }
-
-  if (whiteNotes.includes(noteName[11])) {
-    noteNameColour11 = blackColour;
-    intervalNameColour11 = darkColour;
-  } else {
-    noteNameColour11 = whiteColour;
-    intervalNameColour11 = lightColour;
-  }
 
 }
