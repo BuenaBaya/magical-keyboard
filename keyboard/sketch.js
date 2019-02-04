@@ -11,7 +11,7 @@ var whiteColour = 255;
 var lightColour = 185;
 var darkColour = 65;
 var intervalNameStrokeColour = blackColour;
-var keyPressedInterval = 0;
+var keyPressedInterval = true;
 var intervalX = rootNoteKeyX + 465;
 var intervalY = 500;
 var intervalRotation = 90;
@@ -60,13 +60,13 @@ var legendTextStrokeColourLydian = darkColour;
 var legendTextStrokeColourMixolydian = darkColour;
 var legendTextStrokeColourAeolian = darkColour;
 var legendTextStrokeColourLocrian = darkColour;
-var keyPressedIonian = 0;
-var keyPressedDorian = 0;
-var keyPressedPhrygian = 0;
-var keyPressedLydian = 0;
-var keyPressedMixolydian = 0;
-var keyPressedAeolian = 0;
-var keyPressedLocrian = 0;
+var keyPressedIonian = true;
+var keyPressedDorian = true;
+var keyPressedPhrygian = true;
+var keyPressedLydian = true;
+var keyPressedMixolydian = true;
+var keyPressedAeolian = true;
+var keyPressedLocrian = true;
 
 function getNoteColour(noteName) {
   if (whiteNotes.includes(noteName)) {
@@ -75,6 +75,7 @@ function getNoteColour(noteName) {
     return darkColour;
   }
 }
+
 function getNoteNameColour(noteName) {
   if (whiteNotes.includes(noteName)) {
     return blackColour;
@@ -108,98 +109,70 @@ function keyPressed() {
   }
 
   //keyPressed (numbers 1-7), will hide and show mode dots and their respective legend of a certain mode.
-  if (keyCode === 49 & keyPressedIonian == 0) {
-    keyPressedIonian = 1;
-    dotStrokeColourIonian = dotColourAlpha;
-    dotColourIonian = dotColourAlpha;
-    legendTextColourIonian = dotColourAlpha;
-    legendTextStrokeColourIonian = dotColourAlpha;
-  } else if (keyCode === 49 & keyPressedIonian == 1) {
-    keyPressedIonian = 0;
+  if (keyCode === 49 & keyPressedIonian == true) {
+    keyPressedIonian = false;
+  } else if (keyCode === 49 & keyPressedIonian == false) {
+    keyPressedIonian = true;
     dotStrokeColourIonian = dotStrokeColour;
     dotColourIonian = '#b300b3';
     legendTextColourIonian = whiteColour;
     legendTextStrokeColourIonian = darkColour;
   }
 
-  if (keyCode === 50 & keyPressedDorian == 0) {
-    keyPressedDorian = 1;
-    dotStrokeColourDorian = dotColourAlpha;
-    dotColourDorian = dotColourAlpha;
-    legendTextColourDorian = dotColourAlpha;
-    legendTextStrokeColourDorian = dotColourAlpha;
-  } else if (keyCode === 50 & keyPressedDorian == 1) {
-    keyPressedDorian = 0;
+  if (keyCode === 50 & keyPressedDorian == true) {
+    keyPressedDorian = false;
+  } else if (keyCode === 50 & keyPressedDorian == false) {
+    keyPressedDorian = true;
     dotStrokeColourDorian = dotStrokeColour;
     dotColourDorian = '#ff80bf';
     legendTextColourDorian = whiteColour;
     legendTextStrokeColourDorian = darkColour;
   }
 
-  if (keyCode === 51 & keyPressedPhrygian == 0) {
-    keyPressedPhrygian = 1;
-    dotStrokeColourPhrygian = dotColourAlpha;
-    dotColourPhrygian = dotColourAlpha;
-    legendTextColourPhrygian = dotColourAlpha;
-    legendTextStrokeColourPhrygian = dotColourAlpha;
-  } else if (keyCode === 51 & keyPressedPhrygian == 1) {
-    keyPressedPhrygian = 0;
+  if (keyCode === 51 & keyPressedPhrygian == true) {
+    keyPressedPhrygian = false;
+  } else if (keyCode === 51 & keyPressedPhrygian == false) {
+    keyPressedPhrygian = true;
     dotStrokeColourPhrygian = dotStrokeColour;
     dotColourPhrygian = '#ff9999';
     legendTextColourPhrygian = whiteColour;
     legendTextStrokeColourPhrygian = darkColour;
   }
 
-  if (keyCode === 52 & keyPressedLydian == 0) {
-    keyPressedLydian = 1;
-    dotStrokeColourLydian = dotColourAlpha;
-    dotColourLydian = dotColourAlpha;
-    legendTextColourLydian = dotColourAlpha;
-    legendTextStrokeColourLydian = dotColourAlpha;
-  } else if (keyCode === 52 & keyPressedLydian == 1) {
-    keyPressedLydian = 0;
+  if (keyCode === 52 & keyPressedLydian == true) {
+    keyPressedLydian = false;
+  } else if (keyCode === 52 & keyPressedLydian == false) {
+    keyPressedLydian = true;
     dotStrokeColourLydian = dotStrokeColour;
     dotColourLydian = '#ffaa80';
     legendTextColourLydian = whiteColour;
     legendTextStrokeColourLydian = darkColour;
   }
 
-  if (keyCode === 53 & keyPressedMixolydian == 0) {
-    keyPressedMixolydian = 1;
-    dotStrokeColourMixolydian = dotColourAlpha;
-    dotColourMixolydian = dotColourAlpha;
-    legendTextColourMixolydian = dotColourAlpha;
-    legendTextStrokeColourMixolydian = dotColourAlpha;
-  } else if (keyCode === 53 & keyPressedMixolydian == 1) {
-    keyPressedMixolydian = 0;
+  if (keyCode === 53 & keyPressedMixolydian == true) {
+    keyPressedMixolydian = false;
+  } else if (keyCode === 53 & keyPressedMixolydian == false) {
+    keyPressedMixolydian = true;
     dotStrokeColourMixolydian = dotStrokeColour;
     dotColourMixolydian = '#ffc34d';
     legendTextColourMixolydian = whiteColour;
     legendTextStrokeColourMixolydian = darkColour;
   }
 
-  if (keyCode === 54 & keyPressedAeolian == 0) {
-    keyPressedAeolian = 1;
-    dotStrokeColourAeolian = dotColourAlpha;
-    dotColourAeolian = dotColourAlpha;
-    legendTextColourAeolian = dotColourAlpha;
-    legendTextStrokeColourAeolian = dotColourAlpha;
-  } else if (keyCode === 54 & keyPressedAeolian == 1) {
-    keyPressedAeolian = 0;
+  if (keyCode === 54 & keyPressedAeolian == true) {
+    keyPressedAeolian = false;
+  } else if (keyCode === 54 & keyPressedAeolian == false) {
+    keyPressedAeolian = true;
     dotStrokeColourAeolian = dotStrokeColour;
     dotColourAeolian = '#cccc00';
     legendTextColourAeolian = whiteColour;
     legendTextStrokeColourAeolian = darkColour;
   }
 
-  if (keyCode === 55 & keyPressedLocrian == 0) {
-    keyPressedLocrian = 1;
-    dotStrokeColourLocrian = dotColourAlpha;
-    dotColourLocrian = dotColourAlpha;
-    legendTextColourLocrian = dotColourAlpha;
-    legendTextStrokeColourLocrian = dotColourAlpha;
-  } else if (keyCode === 55 & keyPressedLocrian == 1) {
-    keyPressedLocrian = 0;
+  if (keyCode === 55 & keyPressedLocrian == true) {
+    keyPressedLocrian = false;
+  } else if (keyCode === 55 & keyPressedLocrian == false) {
+    keyPressedLocrian = true;
     dotStrokeColourLocrian = dotStrokeColour;
     dotColourLocrian = '#558000';
     legendTextColourLocrian = whiteColour;
@@ -208,11 +181,11 @@ function keyPressed() {
 
   //keyPressed number 8 rotates the intervalName elements off the screen and back again.
   //Bit of a bodge, but still operates.
-  if (keyCode === 56 & keyPressedInterval == 0) {
-    keyPressedInterval = 1;
+  if (keyCode === 56 & keyPressedInterval == true) {
+    keyPressedInterval = false;
     intervalRotation = 360;
-  } else if (keyCode === 56 & keyPressedInterval == 1) {
-    keyPressedInterval = 0
+  } else if (keyCode === 56 & keyPressedInterval == false) {
+    keyPressedInterval = true
     intervalRotation = 90;
   }
 }
@@ -276,82 +249,96 @@ function draw() {
 
   //ellipse defines the mode dots, with predefined dotColour, dotSize and using individually predefined X and Y values.
   strokeWeight(4);
-  stroke(dotStrokeColourIonian);
-  fill(dotColourIonian);
-  ellipse(dotIonianX, dotIonianY, dotSize);
-  ellipse(dotIonianX + 100, dotIonianY, dotSize);
-  ellipse(dotIonianX + 300, dotIonianY, dotSize);
-  ellipse(dotIonianX + 500, dotIonianY, dotSize);
-  ellipse(dotIonianX + 600, dotIonianY, dotSize);
-  ellipse(dotIonianX + 800, dotIonianY, dotSize);
-  ellipse(dotIonianX + 1000, dotIonianY, dotSize);
-  ellipse(dotIonianX + 1200, dotIonianY, dotSize);
+  if (keyPressedIonian) {
+    stroke(dotStrokeColourIonian);
+    fill(dotColourIonian);
+    ellipse(dotIonianX, dotIonianY, dotSize);
+    ellipse(dotIonianX + 100, dotIonianY, dotSize);
+    ellipse(dotIonianX + 300, dotIonianY, dotSize);
+    ellipse(dotIonianX + 500, dotIonianY, dotSize);
+    ellipse(dotIonianX + 600, dotIonianY, dotSize);
+    ellipse(dotIonianX + 800, dotIonianY, dotSize);
+    ellipse(dotIonianX + 1000, dotIonianY, dotSize);
+    ellipse(dotIonianX + 1200, dotIonianY, dotSize);
+  }
 
-  stroke(dotStrokeColourDorian);
-  fill(dotColourDorian);
-  ellipse(dotDorianX, dotDorianY, dotSize);
-  ellipse(dotDorianX + 100, dotDorianY, dotSize);
-  ellipse(dotDorianX + 300, dotDorianY, dotSize);
-  ellipse(dotDorianX + 400, dotDorianY, dotSize);
-  ellipse(dotDorianX + 600, dotDorianY, dotSize);
-  ellipse(dotDorianX + 800, dotDorianY, dotSize);
-  ellipse(dotDorianX + 1000, dotDorianY, dotSize);
-  ellipse(dotDorianX + 1100, dotDorianY, dotSize);
+  if (keyPressedDorian) {
+    stroke(dotStrokeColourDorian);
+    fill(dotColourDorian);
+    ellipse(dotDorianX, dotDorianY, dotSize);
+    ellipse(dotDorianX + 100, dotDorianY, dotSize);
+    ellipse(dotDorianX + 300, dotDorianY, dotSize);
+    ellipse(dotDorianX + 400, dotDorianY, dotSize);
+    ellipse(dotDorianX + 600, dotDorianY, dotSize);
+    ellipse(dotDorianX + 800, dotDorianY, dotSize);
+    ellipse(dotDorianX + 1000, dotDorianY, dotSize);
+    ellipse(dotDorianX + 1100, dotDorianY, dotSize);
+  }
 
-  stroke(dotStrokeColourPhrygian);
-  fill(dotColourPhrygian);
-  ellipse(dotPhrygianX, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 100, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 200, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 400, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 600, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 800, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 900, dotPhrygianY, dotSize);
-  ellipse(dotPhrygianX + 1100, dotPhrygianY, dotSize);
+  if (keyPressedPhrygian) {
+    stroke(dotStrokeColourPhrygian);
+    fill(dotColourPhrygian);
+    ellipse(dotPhrygianX, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 100, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 200, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 400, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 600, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 800, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 900, dotPhrygianY, dotSize);
+    ellipse(dotPhrygianX + 1100, dotPhrygianY, dotSize);
+  }
 
-  stroke(dotStrokeColourLydian);
-  fill(dotColourLydian);
-  ellipse(dotLydianX, dotLydianY, dotSize);
-  ellipse(dotLydianX + 100, dotLydianY, dotSize);
-  ellipse(dotLydianX + 300, dotLydianY, dotSize);
-  ellipse(dotLydianX + 500, dotLydianY, dotSize);
-  ellipse(dotLydianX + 700, dotLydianY, dotSize);
-  ellipse(dotLydianX + 800, dotLydianY, dotSize);
-  ellipse(dotLydianX + 1000, dotLydianY, dotSize);
-  ellipse(dotLydianX + 1200, dotLydianY, dotSize);
+  if (keyPressedLydian) {
+    stroke(dotStrokeColourLydian);
+    fill(dotColourLydian);
+    ellipse(dotLydianX, dotLydianY, dotSize);
+    ellipse(dotLydianX + 100, dotLydianY, dotSize);
+    ellipse(dotLydianX + 300, dotLydianY, dotSize);
+    ellipse(dotLydianX + 500, dotLydianY, dotSize);
+    ellipse(dotLydianX + 700, dotLydianY, dotSize);
+    ellipse(dotLydianX + 800, dotLydianY, dotSize);
+    ellipse(dotLydianX + 1000, dotLydianY, dotSize);
+    ellipse(dotLydianX + 1200, dotLydianY, dotSize);
+  }
 
-  stroke(dotStrokeColourMixolydian);
-  fill(dotColourMixolydian);
-  ellipse(dotMixolydianX, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 100, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 300, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 500, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 600, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 800, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 1000, dotMixolydianY, dotSize);
-  ellipse(dotMixolydianX + 1100, dotMixolydianY, dotSize);
+  if (keyPressedMixolydian) {
+    stroke(dotStrokeColourMixolydian);
+    fill(dotColourMixolydian);
+    ellipse(dotMixolydianX, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 100, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 300, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 500, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 600, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 800, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 1000, dotMixolydianY, dotSize);
+    ellipse(dotMixolydianX + 1100, dotMixolydianY, dotSize);
+  }
 
-  stroke(dotStrokeColourAeolian);
-  fill(dotColourAeolian);
-  ellipse(dotAeolianX, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 100, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 300, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 400, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 600, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 800, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 900, dotAeolianY, dotSize);
-  ellipse(dotAeolianX + 1100, dotAeolianY, dotSize);
+  if (keyPressedAeolian) {
+    stroke(dotStrokeColourAeolian);
+    fill(dotColourAeolian);
+    ellipse(dotAeolianX, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 100, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 300, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 400, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 600, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 800, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 900, dotAeolianY, dotSize);
+    ellipse(dotAeolianX + 1100, dotAeolianY, dotSize);
+  }
 
-  stroke(dotStrokeColourLocrian);
-  fill(dotColourLocrian);
-  ellipse(dotLocrianX, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 100, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 200, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 400, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 600, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 700, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 900, dotLocrianY, dotSize);
-  ellipse(dotLocrianX + 1100, dotLocrianY, dotSize);
+  if (keyPressedLocrian) {
+    stroke(dotStrokeColourLocrian);
+    fill(dotColourLocrian);
+    ellipse(dotLocrianX, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 100, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 200, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 400, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 600, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 700, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 900, dotLocrianY, dotSize);
+    ellipse(dotLocrianX + 1100, dotLocrianY, dotSize);
+  }
 
   //text defines the noteNameColour, and uses the noteName array to define which character is presented within individual key elements.
   textStyle(BOLD);
